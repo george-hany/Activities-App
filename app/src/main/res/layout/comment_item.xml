@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="comment"
+                  type="com.example.android.activitiesproject.ui.postdetails.model.Comment"/>
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/comment_user_profile"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:src="@drawable/user_profile"
+            app:layout_constraintTop_toTopOf="@id/top_guideline3"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:imagePath="@{comment.user.image}"
+    />
+    <TextView
+            android:id="@+id/comment_user_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{comment.user.name}"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:fontFamily="@font/helveticaneue"
+            app:layout_constraintStart_toEndOf="@id/comment_user_profile"
+            app:layout_constraintTop_toTopOf="@id/top_guideline3"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline2"
+            android:layout_marginStart="@dimen/_20sdp"
+    />
+    <TextView
+            android:id="@+id/comment_body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            app:layout_constraintStart_toStartOf="@id/comment_user_name"
+            app:layout_constraintTop_toBottomOf="@id/comment_user_name"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline2"
+            android:text="@{comment.text}"
+    />
+    <TextView
+            android:id="@+id/comment_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline2"
+            android:text=""
+            app:layout_constraintTop_toTopOf="@id/top_guideline3"
+            app:layout_constraintBottom_toBottomOf="@id/comment_user_name"
+            android:textColor="@color/colorPrimaryDark"
+    />
+    <TextView
+            android:id="@+id/comment_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text="&#8942;"
+            android:gravity="top"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="@dimen/_15sdp"
+            />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/start_guideline" app:layout_constraintGuide_begin="@dimen/_20sdp"
+            android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/end_guideline2" app:layout_constraintGuide_end="@dimen/_26sdp"
+            android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/top_guideline3" app:layout_constraintGuide_begin="@dimen/_8sdp"
+            android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/bottom_guideline4" app:layout_constraintGuide_end="@dimen/_20sdp"
+            android:orientation="horizontal"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

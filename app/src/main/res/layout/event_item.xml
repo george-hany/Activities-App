@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="event"
+                  type="com.example.android.activitiesproject.data.network.model.Event"/>
+    </data>
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+    >
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_54sdp"
+                android:background="@color/colorGrey"
+                android:padding="@dimen/_2sdp"
+
+        >
+
+
+            <TextView
+                    android:gravity="center"
+                    android:text="@{event.title}"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/event_title"
+                    android:textColor="#233b5d"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/helveticaneue"
+                    app:layout_constraintEnd_toStartOf="@id/event_team_name"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toTopOf="@id/top_guideline3"
+                    app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"/>
+            <TextView
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="@{event.teamname}"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/event_team_name"
+                    android:textColor="#ff6526"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/helveticaneue"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toTopOf="@id/top_guideline3"
+                    app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline2"
+            />
+            <TextView
+                    android:layout_gravity="center"
+                    android:id="@+id/event_time"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#233b5d"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:text="@{event.start}"
+                    android:fontFamily="@font/helveticaneue"
+                    app:layout_constraintStart_toEndOf="@id/event_team_name"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline2"
+                    app:layout_constraintTop_toBottomOf="@id/event_date"
+                    app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+                    />
+            <TextView
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/event_date"
+                    android:textColor="#233b5d"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/helveticaneue"
+                    android:gravity="center"
+                    app:layout_constraintStart_toEndOf="@id/event_team_name"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline2"
+                    app:layout_constraintBottom_toTopOf="@id/event_time"
+                    app:layout_constraintTop_toTopOf="@id/top_guideline3"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:id="@+id/start_guideline" app:layout_constraintGuide_begin="@dimen/_8sdp"
+                    android:orientation="vertical"/>
+            <androidx.constraintlayout.widget.Guideline
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:id="@+id/end_guideline2" app:layout_constraintGuide_end="@dimen/_8sdp"
+                    android:orientation="vertical"/>
+            <androidx.constraintlayout.widget.Guideline
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:id="@+id/top_guideline3" app:layout_constraintGuide_begin="@dimen/_20sdp"
+                    android:orientation="horizontal"/>
+            <androidx.constraintlayout.widget.Guideline
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:id="@+id/bottom_guideline4" app:layout_constraintGuide_end="@dimen/_20sdp"
+                    android:orientation="horizontal"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

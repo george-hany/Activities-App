@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".base.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:background="#FFF"
+
+    >
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#FFF"
+                android:layout_gravity="center"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_20sdp"
+            >
+                <ImageView
+                        android:id="@+id/toolbar_icon"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:src="@drawable/home"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:maxHeight="@dimen/_15sdp"
+                        android:maxWidth="@dimen/_15sdp"
+                        android:layout_toLeftOf="@id/toolbar_title"
+                        android:layout_centerVertical="true"
+                />
+                <TextView
+                        android:id="@+id/toolbar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Home"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_centerInParent="true"
+
+
+
+                />
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_main"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

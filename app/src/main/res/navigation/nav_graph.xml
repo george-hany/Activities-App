@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/homeFragment">
+
+    <fragment android:id="@+id/homeFragment"
+              android:name="com.example.android.activitiesproject.ui.home.HomeFragment"
+              android:label="fragment_home" tools:layout="@layout/fragment_home">
+        <!--<action android:id="@+id/action_home_to_notification"-->
+                <!--app:destination="@id/notificationFragment"/>-->
+        <!--<action android:id="@+id/action_home_to_profile" app:destination="@id/profileFragment"/>-->
+        <!--<action android:id="@+id/action_home_to_rank" app:destination="@id/rankFragment"/>-->
+        <!--<action android:id="@+id/action_home_to_events" app:destination="@id/eventsFragment"/>-->
+
+        <action
+                android:id="@+id/action_home_to_postDetails"
+                app:destination="@id/postDetailsFragment" />
+        <action
+                android:id="@+id/action_home_to_profile"
+                app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment android:id="@+id/notificationFragment"
+              android:name="com.example.android.activitiesproject.ui.notification.NotificationFragment"
+              android:label="fragment_notification" tools:layout="@layout/fragment_notification"/>
+
+    <fragment android:id="@+id/profileFragment"
+              android:name="com.example.android.activitiesproject.ui.profile.ProfileFragment"
+              android:label="fragment_profile" tools:layout="@layout/fragment_profile">
+
+        <action
+                android:id="@+id/action_profile_to_postDetails"
+                app:destination="@id/postDetailsFragment" />
+    </fragment>
+    <fragment android:id="@+id/eventsFragment"
+              android:name="com.example.android.activitiesproject.ui.event.EventsFragment"
+              android:label="fragment_events" tools:layout="@layout/fragment_events">
+        <action android:id="@+id/action_events_to_addEvent" app:destination="@id/addEventFragment"
+        >
+            <argument android:defaultValue="add" android:name="type"/>
+            <argument android:name="title" app:argType="string" android:defaultValue="null"/>
+            <argument android:name="description" app:argType="string" android:defaultValue="null"/>
+            <argument android:name="date" app:argType="string" android:defaultValue="null"/>
+            <argument android:name="startTime" app:argType="string" android:defaultValue="null"/>
+            <argument android:name="endTime" app:argType="string" android:defaultValue="null"/>
+            <argument android:name="id" app:argType="string" android:defaultValue="null" />
+
+        </action>
+        <action android:id="@+id/action_events_to_eventDetails"
+                app:destination="@id/eventDetailsFragment">
+            <argument android:name="eventId" app:argType="string"/>
+            <argument android:name="eventUserId" app:argType="string"/>
+        </action>
+    </fragment>
+    <fragment android:id="@+id/rankFragment"
+              android:name="com.example.android.activitiesproject.ui.rank.RankFragment"
+              android:label="fragment_rank" tools:layout="@layout/fragment_rank">
+        <action
+                android:id="@+id/action_rank_to_profile"
+                app:destination="@id/profileFragment" >
+        </action>
+    </fragment>
+    <fragment android:id="@+id/addEventFragment"
+              android:name="com.example.android.activitiesproject.ui.event.addevent.AddEventFragment"
+              android:label="fragment_add_event" tools:layout="@layout/fragment_add_event">
+        <argument android:name="title" app:argType="string" android:defaultValue="null"/>
+        <argument android:name="description" app:argType="string" android:defaultValue="null"/>
+        <argument android:name="date" app:argType="string" android:defaultValue="null"/>
+        <argument android:name="startTime" app:argType="string" android:defaultValue="null"/>
+        <argument android:name="endTime" app:argType="string" android:defaultValue="null"/>
+        <argument android:name="type" app:argType="string" android:defaultValue="add"/>
+        <action
+                android:id="@+id/action_addEvent_to_events"
+                app:destination="@id/eventsFragment"
+                app:popUpTo="@+id/eventsFragment" />
+        <argument
+                android:name="id"
+                app:argType="string"
+                android:defaultValue="null" />
+    </fragment>
+    <fragment android:id="@+id/eventDetailsFragment"
+              android:name="com.example.android.activitiesproject.ui.eventdetails.EventDetailsFragment"
+              android:label="EventDetailsFragment">
+        <action android:id="@+id/action_eventDetails_to_addEvent"
+                app:destination="@id/addEventFragment">
+            <argument android:defaultValue="update" android:name="type"/>
+            <argument android:name="title" app:argType="string" android:defaultValue="null"/>
+            <argument android:name="description" app:argType="string" android:defaultValue="null"/>
+            <argument android:name="date" app:argType="string" android:defaultValue="null"/>
+            <argument android:name="startTime" app:argType="string" android:defaultValue="null"/>
+            <argument android:name="endTime" app:argType="string" android:defaultValue="null"/>
+            <argument android:name="id" app:argType="string" android:defaultValue="null" />
+        </action>
+        <action
+                android:id="@+id/action_eventDetails_to_events"
+                app:destination="@id/eventsFragment"
+                app:popUpTo="@+id/eventsFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/postDetailsFragment"
+            android:name="com.example.android.activitiesproject.ui.postdetails.PostDetailsFragment"
+            android:label="fragment_post_details"
+            tools:layout="@layout/fragment_post_details" >
+        <action
+                android:id="@+id/action_postDetails_to_home"
+                app:destination="@id/homeFragment" />
+    </fragment>
+
+</navigation>

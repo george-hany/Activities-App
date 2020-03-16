@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="vm"
+                type="com.example.android.activitiesproject.ui.event.addevent.AddEventViewModel" />
+    </data>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".ui.event.addevent.AddEventFragment">
+
+            <!-- TODO: Update blank fragment layout -->
+
+
+            <LinearLayout
+                    android:id="@+id/title_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline2"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toTopOf="@id/top_guideline3">
+
+                <TextView
+                        android:id="@+id/txt_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:fontFamily="@font/helveticaneue"
+                        android:text="Title"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_15ssp"
+                        android:textStyle="bold" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_edit_text"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_10sdp">
+
+                    <EditText
+                            android:id="@+id/event_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_42sdp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorGrey"
+                            android:hint="title.."
+                            android:text="@={vm.title}"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textCursorDrawable="@null"
+                            app:met_floatingLabel="highlight" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/description_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline2"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/title_layout">
+
+                <TextView
+                        android:id="@+id/txt_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:fontFamily="@font/helveticaneue"
+                        android:text="Description"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_15ssp"
+                        android:textStyle="bold" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_edit_text"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingEnd="@dimen/_10sdp">
+
+                    <EditText
+                            android:id="@+id/event_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_80sdp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorGrey"
+                            android:gravity="top"
+                            android:hint="description.."
+                            android:maxHeight="@dimen/_80sdp"
+                            android:text="@={vm.description}"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textCursorDrawable="@null"
+                            app:met_floatingLabel="highlight" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/date_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline2"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/description_layout">
+
+                <TextView
+                        android:id="@+id/txt_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:fontFamily="@font/helveticaneue"
+                        android:text="Date"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_15ssp"
+                        android:textStyle="bold" />
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_edit_text"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_10sdp">
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+
+                            >
+
+                        <EditText
+                                android:id="@+id/event_date_day"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_toLeftOf="@id/event_date_icon"
+                                android:background="@null"
+                                android:backgroundTint="@color/colorGrey"
+                                android:gravity="center"
+                                android:hint="--"
+                                android:inputType="number"
+                                android:maxHeight="@dimen/_80sdp"
+                                android:maxLength="2"
+                                android:maxLines="1"
+                                android:text="@={vm.day}"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textCursorDrawable="@null"
+                                app:met_floatingLabel="highlight" />
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="/" />
+
+                        <EditText
+                                android:id="@+id/event_date_month"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_toLeftOf="@id/event_date_icon"
+                                android:background="@null"
+                                android:backgroundTint="@color/colorGrey"
+                                android:gravity="center"
+                                android:hint="--"
+                                android:inputType="number"
+                                android:maxHeight="@dimen/_80sdp"
+                                android:maxLength="2"
+                                android:maxLines="1"
+                                android:text="@={vm.month}"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textCursorDrawable="@null"
+                                app:met_floatingLabel="highlight" />
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="/" />
+
+                        <EditText
+                                android:id="@+id/event_date_year"
+                                android:layout_width="@dimen/_35sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_toLeftOf="@id/event_date_icon"
+                                android:background="@null"
+                                android:backgroundTint="@color/colorGrey"
+                                android:gravity="center"
+                                android:hint="----"
+                                android:inputType="number"
+                                android:maxHeight="@dimen/_80sdp"
+                                android:maxLength="4"
+                                android:maxLines="1"
+                                android:text="@={vm.year}"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textCursorDrawable="@null"
+                                app:met_floatingLabel="highlight" />
+                    </LinearLayout>
+
+                    <ImageView
+                            android:id="@+id/event_date_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/date_icon" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/start_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/date_layout">
+
+                <TextView
+                        android:id="@+id/txt_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:fontFamily="@font/helveticaneue"
+                        android:text="Start"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_15ssp"
+                        android:textStyle="bold" />
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_edit_text"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_10sdp">
+
+                    <EditText
+                            android:id="@+id/event_start_date_hours"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorGrey"
+                            android:gravity="center"
+                            android:hint="00"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:maxLines="1"
+                            android:text="@={vm.hour_start}"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textCursorDrawable="@null"
+                            app:met_floatingLabel="highlight" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=":" />
+
+                    <EditText
+                            android:id="@+id/event_start_date_minutes"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorGrey"
+                            android:gravity="center"
+                            android:hint="00"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:maxLines="1"
+                            android:text="@={vm.minute_start}"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textCursorDrawable="@null"
+                            app:met_floatingLabel="highlight" />
+
+                    <TextView
+                            android:id="@+id/event_start_date_AMPM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/background_ampm"
+                            android:text="@={vm.AMPM_start}"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/_15ssp"
+                            android:textStyle="bold"
+
+
+                            />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/end_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline2"
+                    app:layout_constraintStart_toEndOf="@id/start_layout"
+                    app:layout_constraintTop_toBottomOf="@id/date_layout">
+
+                <TextView
+                        android:id="@+id/txt_end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:fontFamily="@font/helveticaneue"
+                        android:text="End"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_15ssp"
+                        android:textStyle="bold" />
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_edit_text"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_10sdp">
+
+                    <EditText
+                            android:id="@+id/event_end_date_hours"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorGrey"
+                            android:gravity="center"
+                            android:hint="00"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:maxLines="1"
+                            android:text="@={vm.hour_end}"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textCursorDrawable="@null"
+                            app:met_floatingLabel="highlight" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=":" />
+
+                    <EditText
+                            android:id="@+id/event_end_date_minutes"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorGrey"
+                            android:gravity="center"
+                            android:hint="00"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:maxLines="1"
+                            android:text="@={vm.minute_end}"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textCursorDrawable="@null"
+                            app:met_floatingLabel="highlight" />
+
+                    <TextView
+                            android:id="@+id/event_end_date_AMPM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/background_ampm"
+                            android:text="@={vm.AMPM_end}"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/_15ssp"
+                            android:textStyle="bold" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                    android:layout_width="@dimen/_100ssp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:background="@drawable/background_add_event_btn"
+                    android:onClick="@{()->vm.saveEvent()}"
+                    android:text="Save"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline2"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/start_layout" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_20sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/_20sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/top_guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/_20sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottom_guideline4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/_20sdp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

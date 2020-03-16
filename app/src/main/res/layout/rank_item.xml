@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="rank"
+                type="com.example.android.activitiesproject.data.network.model.Rank" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/background_item"
+            android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/rank_profile_image"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/user_default_grey"
+                app:imagePath="@{rank.imagepath}"
+                app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+                app:layout_constraintStart_toStartOf="@id/start_guideline"
+                app:layout_constraintTop_toTopOf="@id/top_guideline3" />
+
+        <TextView
+                android:id="@+id/rank_user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:fontFamily="@font/helveticaneue"
+                android:text="@{rank.username}"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+                app:layout_constraintEnd_toStartOf="@id/rank_score"
+                app:layout_constraintStart_toEndOf="@id/rank_profile_image"
+                app:layout_constraintTop_toTopOf="@id/top_guideline3"
+                tools:text="fatma alzhraa moustafa" />
+
+        <TextView
+                android:id="@+id/rank_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:fontFamily="@font/helveticaneue"
+                android:text="@{rank.totallikes}"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+                app:layout_constraintEnd_toStartOf="@id/heart_icon"
+                app:layout_constraintStart_toEndOf="@id/rank_user_name"
+                app:layout_constraintTop_toTopOf="@id/top_guideline3"
+                tools:text="j33" />
+
+        <ImageView
+                android:id="@+id/heart_icon"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/heart_icon"
+                app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline2"
+                app:layout_constraintHorizontal_bias="0.693"
+                app:layout_constraintStart_toEndOf="@id/rank_profile_image"
+                app:layout_constraintTop_toTopOf="@id/top_guideline3" />
+
+        <TextView
+                android:id="@+id/rank_order_text"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:fontFamily="@font/helveticaneue"
+                android:gravity="center"
+                android:text="first"
+                android:textColor="@color/colorOrange"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline2"
+                app:layout_constraintTop_toTopOf="@id/top_guideline3"
+
+                />
+
+        <ImageView
+                android:id="@+id/rank_order_image"
+                android:layout_width="@dimen/_33sdp"
+                android:layout_height="@dimen/_33sdp"
+                android:src="@drawable/first"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline2"
+                app:layout_constraintTop_toTopOf="@id/top_guideline3" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/top_guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/bottom_guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/_8sdp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

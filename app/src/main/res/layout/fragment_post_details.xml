@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="post"
+                type="com.example.android.activitiesproject.ui.postdetails.model.Post" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_10sdp"
+            >
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:background="@drawable/background_item"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                    android:id="@+id/activity_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_35sdp"
+                    android:text="@{post.user.name}"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/top_guideline3"
+                    android:fontFamily="@font/helveticaneue"
+
+                    />
+
+
+
+            <TextView
+                    android:id="@+id/activity_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline2"
+                    app:layout_constraintTop_toTopOf="@id/top_guideline3" />
+
+            <LinearLayout
+                    android:id="@+id/activity_body_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline2"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/activity_user_name"
+                    app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+                    >
+
+
+                <TextView
+                        android:id="@+id/activity_body_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@{post.text}" />
+
+                <com.dmallcott.dismissibleimageview.DismissibleImageView
+                        android:id="@+id/activity_body_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:adjustViewBounds="true"
+                        android:maxHeight="@dimen/_200sdp"
+                        android:src="@drawable/grey_image" />
+
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/top_guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottom_guideline4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/activity_profile_image"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/user_profile"
+                app:layout_constraintBottom_toTopOf="@id/container"
+                app:layout_constraintStart_toStartOf="@id/container"
+                app:layout_constraintTop_toTopOf="@id/container"
+
+
+                />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/comments_recycle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:background="@drawable/background_item"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container"
+                app:layout_constraintBottom_toTopOf="@id/activity_comment_container"
+                tools:listitem="@layout/comment_item">
+
+        </androidx.recyclerview.widget.RecyclerView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activity_comment_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/background_activity_fields"
+                android:padding="@dimen/_2sdp"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_2sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/activity_likes_count2"
+                android:layout_marginStart="@dimen/_8sdp"
+                >
+
+            <EditText
+                    android:id="@+id/activity_comment"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:background="@null"
+                    android:hint="comment..."
+                    android:maxHeight="@dimen/_40sdp"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintEnd_toStartOf="@id/activity_send_comment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+            <ImageView
+                    android:id="@+id/activity_send_comment"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:src="@drawable/send_comment_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/activity_comment"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activity_like_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_activity_fields"
+                android:padding="@dimen/_3sdp"
+                app:layout_constraintTop_toTopOf="@id/activity_comment_container"
+                app:layout_constraintBottom_toBottomOf="@id/activity_comment_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/_8sdp"
+                >
+
+            <TextView
+                    android:id="@+id/activity_likes_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/activity_like_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                    android:id="@+id/activity_like_icon"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/unlike_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                    android:id="@+id/activity_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:text="Like"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/activity_like_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+                android:id="@+id/activity_likes_count2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{post.totallikes}"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="@id/activity_comment_container"
+                app:layout_constraintBottom_toBottomOf="@id/activity_comment_container"
+                app:layout_constraintStart_toEndOf="@id/activity_comment_container"
+                app:layout_constraintEnd_toStartOf="@id/activity_like_container"
+                 />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_item"
+        android:layout_marginBottom="@dimen/_10sdp"
+>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/notification_profile_image"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@drawable/user_profile"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:layout_constraintTop_toTopOf="@id/top_guideline3"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+
+
+    />
+
+    <TextView
+            android:text="Clara Hourstn  likes your post"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/notification_body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@id/notification_profile_image"
+            app:layout_constraintTop_toTopOf="@id/top_guideline3"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+            app:layout_constraintEnd_toStartOf="@+id/notification_icon"
+            android:maxHeight="@dimen/_35sdp"
+    />
+    <ImageView
+            android:id="@+id/notification_icon"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/heart_icon"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guideline4"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline2"
+            app:layout_constraintTop_toTopOf="@id/top_guideline3"
+    />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/start_guideline" app:layout_constraintGuide_begin="@dimen/_20sdp"
+            android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/end_guideline2" app:layout_constraintGuide_end="@dimen/_20sdp"
+            android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/top_guideline3" app:layout_constraintGuide_begin="@dimen/_8sdp"
+            android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/bottom_guideline4" app:layout_constraintGuide_end="@dimen/_8sdp"
+            android:orientation="horizontal"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
